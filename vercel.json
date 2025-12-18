@@ -2,37 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/api_main.py",
+      "src": "api_main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/api_main.py",
-      "methods": ["GET", "POST", "OPTIONS"]
-    }
-  ],
-  "env": {
-    "PYTHONPATH": "/var/task/api"
-  },
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
+      "dest": "/api_main.py"
     }
   ]
 }
