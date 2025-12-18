@@ -3,16 +3,17 @@
   "builds": [
     {
       "src": "api_main.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.11"
-      }
+      "use": "@vercel/python"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/api_main.py"
+      "src": "/(.*)",
+      "dest": "/api_main.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "true",
+    "PYTHONPATH": "/var/task"
+  }
 }
